@@ -56,6 +56,8 @@ function renderApp(data) {
   applyDynamicLinks(data)
   setupYouTube()
   createIcons({ icons })
+
+  app.classList.add('animate-[fadeIn_0.4s_ease-out]')
 }
 
 async function init() {
