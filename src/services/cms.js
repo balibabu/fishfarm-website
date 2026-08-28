@@ -16,8 +16,11 @@ function isConfigured() {
 }
 
 async function fetchFromFirestore() {
-  const [{ initializeApp, getFirestore, doc, getDoc, collection, getDocs, query, orderBy, limit }] =
-    await Promise.all([import('firebase/app'), import('firebase/firestore')])
+  const [{ initializeApp }, firestore] = await Promise.all([
+    import('firebase/app'),
+    import('firebase/firestore'),
+  ])
+  const { getFirestore, doc, getDoc, collection, getDocs, query, orderBy, limit } = firestore
 
   const db = getFirestore(initializeApp(FIREBASE_CONFIG))
 
